@@ -9,15 +9,17 @@ const videogames = [
 ]
 
 const filterGame = videogames.filter(videogame =>{
-    return videogame.genders.includes('RPG');
+    return videogame.genders.find(gender => gender === 'RPG');
 })
 
 const copyResults = [...filterGame];
-console.log(copyResults)
+// console.log(copyResults)
 
-const totalAverage = copyResults.reduce((acc, cur) => {
+const totalSum = copyResults.reduce((acc, cur) => {
     return acc + cur.score
 },0);
+
+const totalAverage = totalSum / copyResults.length
 
 console.log(totalAverage);
 
